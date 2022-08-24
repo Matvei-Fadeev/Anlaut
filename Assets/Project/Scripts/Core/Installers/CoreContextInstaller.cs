@@ -1,5 +1,4 @@
 ﻿using Core.Commands;
-using Core.Contexts.Popup;
 using Zenject;
 
 namespace Core.Installers
@@ -30,7 +29,6 @@ namespace Core.Installers
                 .ToMethod<UnloadAllScenesExceptCommand>(x => x.Execute)
                 .FromNew();
 
-            Container.DeclareSignal<OpenPopupSignal>();
 
             Container.Bind<PromiseLoader>().AsTransient();
 
