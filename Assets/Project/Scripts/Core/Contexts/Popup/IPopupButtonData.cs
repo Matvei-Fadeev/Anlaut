@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Project.Scripts.Core.Contexts.Popup
+namespace Core.Contexts.Popup
 {
     public interface IPopupButtonData
     {

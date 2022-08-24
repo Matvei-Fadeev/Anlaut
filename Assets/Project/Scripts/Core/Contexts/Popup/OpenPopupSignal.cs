@@ -1,7 +1,7 @@
-﻿using Project.Scripts.Core.thirdparty.RSG.Promise.v1._3._0._0;
+﻿using Core.thirdparty.RSG.Promise.v1._3._0._0;
 using Zenject;
 
-namespace Project.Scripts.Core.Contexts.Popup
+namespace Core.Contexts.Popup
 {
     public class OpenPopupSignal
     {

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using Project.Scripts.Core.Contexts.Popup;
-using Project.Scripts.Core.thirdparty.RSG.Promise.v1._3._0._0;
+using Core.Contexts.Popup;
+using Core.thirdparty.RSG.Promise.v1._3._0._0;
 using UniRx;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Scripts.Core.Contexts.FSM
+namespace Core.Contexts.FSM
 {
     public partial class StateMachineMediator : IInitializable, ITickable, IDisposable
     {

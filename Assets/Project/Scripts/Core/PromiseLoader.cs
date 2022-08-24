@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Project.Scripts.Core.thirdparty.RSG.Promise.v1._3._0._0;
+using Core.thirdparty.RSG.Promise.v1._3._0._0;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Scripts.Core
+namespace Core
 {
     /*
      * PromiseLoader manages a collection of promises:

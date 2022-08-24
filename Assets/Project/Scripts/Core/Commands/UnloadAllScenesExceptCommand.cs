@@ -1,10 +1,10 @@
-﻿using Project.Scripts.Core.Installers;
-using Project.Scripts.Core.thirdparty.RSG.Promise.v1._3._0._0;
+﻿using Core.Installers;
+using Core.thirdparty.RSG.Promise.v1._3._0._0;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
 
-namespace Project.Scripts.Core.Commands
+namespace Core.Commands
 {
     public class UnloadAllScenesExceptCommand : BaseCommand
     {

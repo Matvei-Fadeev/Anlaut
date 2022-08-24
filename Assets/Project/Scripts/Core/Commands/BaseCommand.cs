@@ -1,6 +1,6 @@
 ﻿using Zenject;
 
-namespace Project.Scripts.Core.Commands
+namespace Core.Commands
 {
     public abstract class BaseCommand
     {

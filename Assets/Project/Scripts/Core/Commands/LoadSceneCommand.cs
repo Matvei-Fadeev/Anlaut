@@ -1,7 +1,7 @@
-﻿using Project.Scripts.Core.Installers;
+﻿using Core.Installers;
 using Zenject;
 
-namespace Project.Scripts.Core.Commands
+namespace Core.Commands
 {
     public class LoadSceneCommand : BaseCommand
     {

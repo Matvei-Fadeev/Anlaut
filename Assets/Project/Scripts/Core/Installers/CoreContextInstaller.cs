@@ -1,8 +1,8 @@
-﻿using Project.Scripts.Core.Commands;
-using Project.Scripts.Core.Contexts.Popup;
+﻿using Core.Commands;
+using Core.Contexts.Popup;
 using Zenject;
 
-namespace Project.Scripts.Core.Installers
+namespace Core.Installers
 {
     public class CoreContextInstaller : MonoInstaller
     {

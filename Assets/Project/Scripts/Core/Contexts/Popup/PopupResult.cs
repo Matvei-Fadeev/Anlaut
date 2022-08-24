@@ -1,4 +1,4 @@
-﻿namespace Project.Scripts.Core.Contexts.Popup
+﻿namespace Core.Contexts.Popup
 {
     public class PopupResult : IPopupResult
     {

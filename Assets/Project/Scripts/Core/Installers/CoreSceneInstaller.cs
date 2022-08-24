@@ -1,7 +1,7 @@
 ﻿using System;
 using Zenject;
 
-namespace Project.Scripts.Core.Installers
+namespace Core.Installers
 {
     public class CoreSceneInstaller : MonoInstaller
     {

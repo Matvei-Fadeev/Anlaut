@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Project.Scripts.Core.thirdparty.RSG.Promise.v1._3._0._0
+namespace Core.thirdparty.RSG.Promise.v1._3._0._0
 {
     /// <summary>
     /// Implements a C# promise.

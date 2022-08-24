@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Project.Scripts.Core.thirdparty.RSG.Promise.v1._3._0._0
+namespace Core.thirdparty.RSG.Promise.v1._3._0._0
 {
     /// <summary>
     /// General extensions to LINQ.

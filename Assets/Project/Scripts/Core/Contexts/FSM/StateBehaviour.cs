@@ -2,7 +2,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace Project.Scripts.Core.Contexts.FSM
+namespace Core.Contexts.FSM
 {
     public partial class StateMachineMediator
     {
