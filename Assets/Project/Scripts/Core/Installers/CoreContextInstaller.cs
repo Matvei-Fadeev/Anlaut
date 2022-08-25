@@ -8,6 +8,8 @@ namespace Core.Installers
         public override void InstallBindings()
         {
             SignalBusInstaller.Install(Container);
+            SceneContextInstaller.Install(Container);
+            PromiseContextInstaller.Install(Container);
         }
     }
 }

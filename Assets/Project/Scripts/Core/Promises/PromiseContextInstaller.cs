@@ -3,7 +3,7 @@ using Zenject;
 
 namespace Core
 {
-    public class PromiseContextInstaller : InstallerBase
+    public class PromiseContextInstaller : Installer<PromiseContextInstaller>
     {
         public override void InstallBindings()
         {

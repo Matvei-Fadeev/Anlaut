@@ -4,7 +4,7 @@ using Zenject;
 
 namespace Core.SceneLoader
 {
-    public class SceneContextInstaller : InstallerBase
+    public class SceneContextInstaller : Installer<SceneContextInstaller>
     {
         public override void InstallBindings()
         {
