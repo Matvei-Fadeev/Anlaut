@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Core
+namespace Core.Unity
 {
     public class CoroutineRunner : MonoBehaviour
     {

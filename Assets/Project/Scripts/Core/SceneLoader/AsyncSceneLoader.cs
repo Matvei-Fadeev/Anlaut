@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using Core.thirdparty.RSG.Promise.v1._3._0._0;
+using Core.Unity;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
 
-namespace Core
+namespace Core.SceneLoader
 {
     public class AsyncSceneLoader : ISceneLoader
     {
