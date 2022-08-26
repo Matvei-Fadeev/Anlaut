@@ -1,14 +1,12 @@
-﻿using Core.Contexts.FSM;
-
-namespace AnlautJam.Game.Template
+﻿namespace AnlautJam.Game.Template
 {
     public partial class TemplateMediator
     {
-        public class TemplateState : StateMachineMediator.StateBehaviour
+        public class TemplateState : StateBehaviour
         {
             protected readonly TemplateMediator Mediator;
             protected readonly TemplateModel Model;
-            protected readonly TemplateView View;
+            protected readonly ITemplateView View;
             
             public TemplateState(TemplateMediator mediator) : base(mediator)
             {

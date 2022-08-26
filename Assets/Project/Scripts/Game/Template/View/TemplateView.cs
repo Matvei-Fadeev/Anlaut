@@ -2,8 +2,7 @@
 
 namespace AnlautJam.Game.Template
 {
-    public class TemplateView : MonoBehaviour
+    public class TemplateView : MonoBehaviour, ITemplateView
     {
-        
     }
 }
