@@ -1,24 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using UniRx;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
 namespace Core.Contexts.FSM
 {
-    public partial class StateMachineMediator : IInitializable, ITickable, IDisposable
+    public partial class StateMachineMediator : Mediator
     {
         protected StateBehaviour CurrentStateBehaviour;
         protected Dictionary<int, StateBehaviour> StateBehaviours = new Dictionary<int, StateBehaviour>();
-        
-        protected CompositeDisposable Disposables;
-
-        [Inject] protected SignalBus SignalBus;
-
-        public virtual void Initialize()
-		{
-			Disposables = new CompositeDisposable();
-        }
 
         public virtual void GoToState(int stateType)
         {
@@ -26,19 +14,19 @@ namespace Core.Contexts.FSM
             {
                 Debug.LogError("State Missing in Mediator.");
             }
-            else if(CurrentStateBehaviour == null || StateBehaviours[stateType] != CurrentStateBehaviour)
+            else if (CurrentStateBehaviour == null || StateBehaviours[stateType] != CurrentStateBehaviour)
             {
                 GoToStateInternal(stateType);
             }
         }
-        
+
         private void GoToStateInternal(int stateType)
         {
             if (StateBehaviours.ContainsKey(stateType))
             {
                 CurrentStateBehaviour?.OnStateExit();
                 CurrentStateBehaviour = StateBehaviours[stateType];
-                
+
                 CurrentStateBehaviour.OnStateEnter();
             }
             else
@@ -47,17 +35,16 @@ namespace Core.Contexts.FSM
             }
         }
 
-        public virtual void Tick()
+        public override void Tick()
         {
+            base.Tick();
             CurrentStateBehaviour?.Tick();
         }
 
-        public virtual void Dispose()
+        public override void Dispose()
         {
             CurrentStateBehaviour?.OnStateExit();
-
-            Disposables.Dispose();
-
+            base.Dispose();
             StateBehaviours.Clear();
         }
     }
