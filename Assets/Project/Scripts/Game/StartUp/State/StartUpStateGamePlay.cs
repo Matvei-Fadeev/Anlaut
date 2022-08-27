@@ -2,7 +2,7 @@
 {
     public partial class StartUpMediator
     {
-        public class StartUpStateGamePlay : StartUpState
+        public class StartUpStateGamePlay : State
         {
             public StartUpStateGamePlay(StartUpMediator mediator) : base(mediator)
             {

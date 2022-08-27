@@ -5,7 +5,7 @@ namespace AnlautJam.Game.StartUp
 {
     public partial class StartUpMediator
     {
-        public class StartUpStateLoadGamePlay : StartUpState
+        public class StartUpStateLoadGamePlay : State
         {
             public StartUpStateLoadGamePlay(StartUpMediator mediator) : base(mediator)
             {

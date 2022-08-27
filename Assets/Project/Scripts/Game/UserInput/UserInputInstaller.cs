@@ -1,17 +1,12 @@
-﻿using UnityEngine;
-using Zenject;
+﻿using Core.Installers;
+using UnityEngine;
 
 namespace AnlautJam.Game.UserInput
 {
-    public class UserInputInstaller : MonoInstaller
+    public class UserInputInstaller : ContextInstaller<UserInputMediator, IUserInputView, UserInputModel>
     {
         [SerializeField] private UserInputView userInputView;
 
-        public override void InstallBindings()
-        {
-            Container.Bind<UserInputModel>().AsSingle();
-            Container.Bind<IUserInputView>().FromInstance(userInputView);
-            Container.BindInterfacesTo<UserInputMediator>().AsSingle();
-        }
+        protected override IUserInputView View => userInputView;
     }
 }

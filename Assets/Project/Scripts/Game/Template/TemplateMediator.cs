@@ -1,13 +1,9 @@
-﻿using Core.Contexts.FSM;
-using Zenject;
+﻿using Core.Contexts;
 
 namespace AnlautJam.Game.Template
 {
-    public partial class TemplateMediator : StateMachineMediator
+    public class TemplateMediator : Mediator<ITemplateView, TemplateModel>
     {
-        [Inject] private readonly ITemplateView _templateView;
-        [Inject] private readonly TemplateModel _templateModel;
-
         public override void Initialize()
         {
             base.Initialize();

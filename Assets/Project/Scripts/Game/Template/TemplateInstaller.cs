@@ -1,17 +1,12 @@
-﻿using UnityEngine;
-using Zenject;
+﻿using Core.Installers;
+using UnityEngine;
 
 namespace AnlautJam.Game.Template
 {
-    public class TemplateInstaller : MonoInstaller
+    public class TemplateInstaller : ContextInstaller<TemplateStateMediator, ITemplateView, TemplateModel>
     {
         [SerializeField] private TemplateView templateView;
 
-        public override void InstallBindings()
-        {
-            Container.Bind<TemplateModel>().AsSingle();
-            Container.Bind<ITemplateView>().FromInstance(templateView);
-            Container.BindInterfacesTo<TemplateMediator>().AsSingle();
-        }
+        protected override ITemplateView View => templateView;
     }
 }

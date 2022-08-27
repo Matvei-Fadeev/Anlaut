@@ -11,9 +11,9 @@ namespace Core.Contexts.FSM
             protected CompositeDisposable Disposables;
             protected readonly SignalBus SignalBus;
 
-            public StateBehaviour(StateMachineMediator mediator)
+            public StateBehaviour(StateMachineMediator stateMediator)
             {
-                SignalBus = mediator.SignalBus;
+                SignalBus = stateMediator.SignalBus;
             }
 
             public virtual void OnStateEnter()

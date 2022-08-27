@@ -1,17 +1,14 @@
 ﻿using AnlautJam.Game.UserInput;
-using Core.Contexts.FSM;
+using Core.Contexts;
 using UnityEngine;
 using Zenject;
 
 namespace AnlautJam.Game.Movement
 {
-    public partial class MovementMediator : StateMachineMediator
+    public partial class MovementMediator : Mediator<IMovementView, MovementModel>
     {
-        [Inject] private readonly IMovementView _movementView;
-        [Inject] private readonly MovementModel _movementModel;
-
         [Inject] private readonly UserInputMediator _userInputMediator;
-        
+
         public override void Initialize()
         {
             base.Initialize();
@@ -26,7 +23,7 @@ namespace AnlautJam.Game.Movement
 
         private void Move(Vector3 movementDirection)
         {
-            _movementView.Move(movementDirection);
+            View.Move(movementDirection);
         }
     }
 }

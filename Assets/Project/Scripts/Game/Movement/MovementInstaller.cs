@@ -1,17 +1,12 @@
-﻿using UnityEngine;
-using Zenject;
+﻿using Core.Installers;
+using UnityEngine;
 
 namespace AnlautJam.Game.Movement
 {
-    public class MovementInstaller : MonoInstaller
+    public class MovementInstaller : ContextInstaller<MovementMediator, IMovementView, MovementModel>
     {
         [SerializeField] private MovementView movementView;
 
-        public override void InstallBindings()
-        {
-            Container.Bind<MovementModel>().AsSingle();
-            Container.Bind<IMovementView>().FromInstance(movementView);
-            Container.BindInterfacesTo<MovementMediator>().AsSingle();
-        }
+        protected override IMovementView View => movementView;
     }
 }

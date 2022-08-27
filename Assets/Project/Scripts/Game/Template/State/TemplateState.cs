@@ -1,18 +1,11 @@
 ﻿namespace AnlautJam.Game.Template
 {
-    public partial class TemplateMediator
+    public partial class TemplateStateMediator
     {
-        public class TemplateState : StateBehaviour
+        public class TemplateState : State
         {
-            protected readonly TemplateMediator Mediator;
-            protected readonly TemplateModel Model;
-            protected readonly ITemplateView View;
-            
-            public TemplateState(TemplateMediator mediator) : base(mediator)
+            public TemplateState(TemplateStateMediator stateMediator) : base(stateMediator)
             {
-                Mediator = mediator;
-                Model = mediator._templateModel;
-                View = mediator._templateView;
             }
         }
     }
