@@ -12,9 +12,14 @@ namespace Core.Installers
 
         public override void InstallBindings()
         {
-            Container.Bind<TModel>().AsSingle();
-            Container.Bind<TView>().FromInstance(View);
-            Container.BindInterfacesAndSelfTo<TMediator>().AsSingle();
+            InstallBindings(Container, View);
+        }
+
+        public static void InstallBindings(DiContainer diContainer, TView view)
+        {
+            diContainer.Bind<TModel>().AsSingle();
+            diContainer.Bind<TView>().FromInstance(view);
+            diContainer.BindInterfacesAndSelfTo<TMediator>().AsSingle();
         }
     }
 }

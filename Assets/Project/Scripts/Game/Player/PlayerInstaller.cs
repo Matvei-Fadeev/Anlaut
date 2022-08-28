@@ -5,29 +5,24 @@ using Zenject;
 
 namespace AnlautJam.Game.Player
 {
-    public class PlayerInstaller : MonoInstaller
+    public class PlayerInstaller : Core.Installers.MonoInstaller<PlayerMediator, IPlayerView, PlayerModel>
     {
         [SerializeField] private PlayerView playerView;
         [SerializeField] private TriggerView triggerView;
         [SerializeField] private MovementView movementView;
 
+        protected override IPlayerView View => playerView;
+
         public override void InstallBindings()
         {
+            base.InstallBindings();
             InstallPlayerBindings(Container);
         }
 
         public void InstallPlayerBindings(DiContainer diContainer)
         {
-            Bind<MovementMediator, IMovementView, MovementModel>(diContainer, movementView);
-            Bind<TriggerMediator, ITriggerView, TriggerModel>(diContainer, triggerView);
-            Bind<PlayerMediator, IPlayerView, PlayerModel>(diContainer, playerView);
-        }
-
-        private static void Bind<TMediator, TView, TModel>(DiContainer diContainer, TView view)
-        {
-            diContainer.Bind<TModel>().AsSingle();
-            diContainer.Bind<TView>().FromInstance(view).AsSingle();
-            diContainer.BindInterfacesAndSelfTo<TMediator>().AsSingle();
+            MovementInstaller.InstallBindings(diContainer, movementView);
+            TriggerInstaller.InstallBindings(diContainer, triggerView);
         }
     }
 }
