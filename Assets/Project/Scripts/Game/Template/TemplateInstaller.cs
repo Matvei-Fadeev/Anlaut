@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace AnlautJam.Game.Template
 {
-    public class TemplateInstaller : ContextInstaller<TemplateStateMediator, ITemplateView, TemplateModel>
+    public class TemplateInstaller : MonoInstaller<TemplateMediator, ITemplateView, TemplateModel>
     {
         [SerializeField] private TemplateView templateView;
 

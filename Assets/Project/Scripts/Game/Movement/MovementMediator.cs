@@ -5,7 +5,7 @@ using Zenject;
 
 namespace AnlautJam.Game.Movement
 {
-    public partial class MovementMediator : Mediator<IMovementView, MovementModel>
+    public class MovementMediator : Mediator<IMovementView, MovementModel>
     {
         [Inject] private readonly UserInputMediator _userInputMediator;
 

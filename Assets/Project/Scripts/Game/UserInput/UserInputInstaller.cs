@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace AnlautJam.Game.UserInput
 {
-    public class UserInputInstaller : ContextInstaller<UserInputMediator, IUserInputView, UserInputModel>
+    public class UserInputInstaller : MonoInstaller<UserInputMediator, IUserInputView, UserInputModel>
     {
         [SerializeField] private UserInputView userInputView;
 
