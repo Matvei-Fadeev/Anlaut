@@ -13,16 +13,21 @@ namespace AnlautJam.Game.Player
 
         public override void InstallBindings()
         {
-            Bind<MovementMediator, IMovementView, MovementModel>(movementView);
-            Bind<TriggerMediator, ITriggerView, TriggerModel>(triggerView);
-            Bind<PlayerMediator, IPlayerView, PlayerModel>(playerView);
+            InstallPlayerBindings(Container);
         }
 
-        private void Bind<TMediator, TView, TModel>(TView view)
+        public void InstallPlayerBindings(DiContainer diContainer)
         {
-            Container.Bind<TModel>().AsSingle();
-            Container.Bind<TView>().FromInstance(view).AsSingle();
-            Container.BindInterfacesAndSelfTo<TMediator>().AsSingle();
+            Bind<MovementMediator, IMovementView, MovementModel>(diContainer, movementView);
+            Bind<TriggerMediator, ITriggerView, TriggerModel>(diContainer, triggerView);
+            Bind<PlayerMediator, IPlayerView, PlayerModel>(diContainer, playerView);
+        }
+
+        private static void Bind<TMediator, TView, TModel>(DiContainer diContainer, TView view)
+        {
+            diContainer.Bind<TModel>().AsSingle();
+            diContainer.Bind<TView>().FromInstance(view).AsSingle();
+            diContainer.BindInterfacesAndSelfTo<TMediator>().AsSingle();
         }
     }
 }
