@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9195363774154027311}
-  - component: {fileID: 2775564961593049891}
   - component: {fileID: 5736268766347733781}
   - component: {fileID: 1596013230250401073}
   m_Layer: 0
@@ -34,19 +33,6 @@ Transform:
   m_Father: {fileID: 4149274995658802069}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2775564961593049891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 278337066891562262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: baac3a029e82472683e0c62ad2e15bb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementView: {fileID: 5736268766347733781}
 --- !u!114 &5736268766347733781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,7 +137,6 @@ GameObject:
   - component: {fileID: 2316144897627692924}
   - component: {fileID: 4251650678731350188}
   - component: {fileID: 138009149417089276}
-  - component: {fileID: 1237902044539605445}
   m_Layer: 0
   m_Name: PlayerBody
   m_TagString: Untagged
@@ -231,7 +216,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4069065737239574051}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
@@ -249,16 +234,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65bcfa84cc8442e4a2eb233f1b9f4a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1237902044539605445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4069065737239574051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb4506d3d1a943c88ec7833b7a9b7239, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerView: {fileID: 138009149417089276}

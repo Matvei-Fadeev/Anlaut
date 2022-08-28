@@ -5,6 +5,6 @@ namespace AnlautJam.Game.Trigger
 {
     public interface ITriggerView
     {
-        event Action<Collider, TriggerType> OnTrigger;
+        event Action<Collider> OnTriggerEnterEvent;
     }
 }

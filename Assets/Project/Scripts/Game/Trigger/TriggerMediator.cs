@@ -13,20 +13,20 @@ namespace AnlautJam.Game.Trigger
         public override void Initialize()
         {
             base.Initialize();
-            View.OnTrigger += OnTriggerEnter;
+            View.OnTriggerEnterEvent += OnTriggerEnterEvent;
         }
 
         public override void Dispose()
         {
             base.Dispose();
-            View.OnTrigger -= OnTriggerEnter;
+            View.OnTriggerEnterEvent -= OnTriggerEnterEvent;
         }
 
-        private void OnTriggerEnter(Collider collider, TriggerType triggerType)
+        private void OnTriggerEnterEvent(Collider collider)
         {
             if (collider.CompareTag("Player") && collider.TryGetComponent(out IPlayerView playerView))
             {
-                OnPlayerInTrigger?.Invoke(playerView, triggerType);
+                OnPlayerInTrigger?.Invoke(playerView, TriggerType.OnTriggerEnter);
             }
             
             OnTrigger?.Invoke();

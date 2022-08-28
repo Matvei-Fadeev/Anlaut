@@ -8,9 +8,9 @@ namespace AnlautJam.Game.Trigger
     {
         private void OnTriggerEnter(Collider other)
         {
-            OnTrigger?.Invoke(other, TriggerType.OnTriggerEnter);
+            OnTriggerEnterEvent?.Invoke(other);
         }
 
-        public event Action<Collider, TriggerType> OnTrigger;
+        public event Action<Collider> OnTriggerEnterEvent;
     }
 }
