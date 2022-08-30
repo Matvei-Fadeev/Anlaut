@@ -1,10 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Project.Scripts.Game.Spawner;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 using UnityEngine;
+using Zenject;
 
 namespace AnlautJam.Game.Spawner
 {
@@ -12,17 +9,10 @@ namespace AnlautJam.Game.Spawner
     {
         [SerializeField] private List<SpawnPoint> spawnPoints;
 
-        #if UNITY_EDITOR
-        private void OnValidate()
-        {
-            spawnPoints = gameObject.GetComponentsInChildren<SpawnPoint>().ToList();
-            EditorUtility.SetDirty(this);
-        }
-        #endif
-
-        public List<ISpawnPoint> SpawnPoints { get; }
-
-        public SpawnerView()
+        public List<ISpawnPoint> SpawnPoints { get; private set; }
+        
+        [Inject]        
+        public void Construct()
         {
             SpawnPoints = new List<ISpawnPoint>(spawnPoints);
         }

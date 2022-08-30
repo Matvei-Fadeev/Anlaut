@@ -1,16 +1,17 @@
 ﻿using System;
+using UniRx.Triggers;
 using UnityEngine;
 
 namespace AnlautJam.Game.Trigger
 {
-    [RequireComponent(typeof(Collider))]
     public class TriggerView : MonoBehaviour, ITriggerView
     {
-        private void OnTriggerEnter(Collider other)
+        public IObservable<Collision> OnCollisionEnter { get; private set; }
+        
+        private void Start()
         {
-            OnTriggerEnterEvent?.Invoke(other);
+            var eventTrigger = gameObject.AddComponent<ObservableCollisionTrigger>();
+            OnCollisionEnter = eventTrigger.OnCollisionEnterAsObservable();
         }
-
-        public event Action<Collider> OnTriggerEnterEvent;
     }
 }

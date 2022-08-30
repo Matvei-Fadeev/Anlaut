@@ -1,35 +1,32 @@
 ﻿using System;
 using AnlautJam.Game.Player;
 using Core.Contexts;
+using UniRx;
 using UnityEngine;
 
 namespace AnlautJam.Game.Trigger
 {
     public class TriggerMediator : Mediator<ITriggerView, TriggerModel>
     {
-        public Action<IPlayerView, TriggerType> OnPlayerInTrigger; 
-        public Action OnTrigger; 
-        
+        public Action<IPlayerView, TriggerType> OnPlayerInTrigger;
+        public Action OnTrigger;
+
         public override void Initialize()
         {
             base.Initialize();
-            View.OnTriggerEnterEvent += OnTriggerEnterEvent;
+            View.OnCollisionEnter.Subscribe(OnCollisionEnter).AddTo(Disposables);
         }
 
-        public override void Dispose()
+        private void OnCollisionEnter(Collision collision)
         {
-            base.Dispose();
-            View.OnTriggerEnterEvent -= OnTriggerEnterEvent;
-        }
-
-        private void OnTriggerEnterEvent(Collider collider)
-        {
-            if (collider.CompareTag("Player") && collider.TryGetComponent(out IPlayerView playerView))
+            if (collision.collider.CompareTag("Player") &&
+                collision.gameObject.TryGetComponent(out IPlayerView playerView))
             {
                 OnPlayerInTrigger?.Invoke(playerView, TriggerType.OnTriggerEnter);
             }
-            
+
             OnTrigger?.Invoke();
+            Debug.Log(nameof(OnCollisionEnter));
         }
     }
 }
