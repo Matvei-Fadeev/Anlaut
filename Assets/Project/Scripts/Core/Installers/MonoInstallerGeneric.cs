@@ -15,6 +15,12 @@ namespace Core.Installers
             InstallBindings(Container, View);
         }
 
+        public static void InstallBindings(DiContainer diContainer, TView view, TModel currencyModel)
+        {
+            diContainer.BindInstance(currencyModel);
+            InstallBindings(diContainer, view);
+        }
+        
         public static void InstallBindings(DiContainer diContainer, TView view)
         {
             if (!diContainer.HasBinding<TModel>())
