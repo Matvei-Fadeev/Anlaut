@@ -23,7 +23,7 @@ namespace AnlautJam.Game.Movement
 
         private void Move(Vector3 movementDirection)
         {
-            View.Move(movementDirection);
+            View.Move(movementDirection * Model.speed);
         }
     }
 }

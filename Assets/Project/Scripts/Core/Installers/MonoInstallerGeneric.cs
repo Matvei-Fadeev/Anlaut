@@ -17,7 +17,8 @@ namespace Core.Installers
 
         public static void InstallBindings(DiContainer diContainer, TView view)
         {
-            diContainer.Bind<TModel>().AsSingle();
+            if (!diContainer.HasBinding<TModel>())
+                diContainer.Bind<TModel>().AsSingle();
             diContainer.Bind<TView>().FromInstance(view);
             diContainer.BindInterfacesAndSelfTo<TMediator>().AsSingle();
         }
