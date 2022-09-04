@@ -1,4 +1,5 @@
-﻿using Core.Contexts;
+﻿using System;
+using Core.Contexts;
 using Zenject;
 
 namespace Core.Installers
@@ -10,9 +11,14 @@ namespace Core.Installers
     {
         protected abstract TView View { get; }
 
-        public override void InstallBindings()
+        public sealed override void InstallBindings()
         {
             InstallBindings(Container, View);
+            InstallBindings(Container);
+        }
+
+        public virtual void InstallBindings(DiContainer diContainer)
+        {
         }
 
         public static void InstallBindings(DiContainer diContainer, TView view, TModel currencyModel)
@@ -20,7 +26,7 @@ namespace Core.Installers
             diContainer.BindInstance(currencyModel);
             InstallBindings(diContainer, view);
         }
-        
+
         public static void InstallBindings(DiContainer diContainer, TView view)
         {
             if (!diContainer.HasBinding<TModel>())

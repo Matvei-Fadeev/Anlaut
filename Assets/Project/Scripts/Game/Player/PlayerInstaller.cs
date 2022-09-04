@@ -13,13 +13,7 @@ namespace AnlautJam.Game.Player
 
         protected override IPlayerView View => playerView;
 
-        public override void InstallBindings()
-        {
-            base.InstallBindings();
-            InstallPlayerBindings(Container);
-        }
-
-        public void InstallPlayerBindings(DiContainer diContainer)
+        public override void InstallBindings(DiContainer diContainer)
         {
             MovementInstaller.InstallBindings(diContainer, movementView);
             TriggerInstaller.InstallBindings(diContainer, triggerView);

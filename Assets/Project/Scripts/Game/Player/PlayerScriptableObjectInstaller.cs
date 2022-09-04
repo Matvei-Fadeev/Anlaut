@@ -15,7 +15,7 @@ namespace AnlautJam.Game.Player
             Container.BindInstance(movementModel);
             
             var playerInstaller = Container.InstantiatePrefabForComponent<PlayerInstaller>(playerPrefab);
-            playerInstaller.InstallPlayerBindings(Container);
+            playerInstaller.InstallBindings(Container);
         }
     }
 }
