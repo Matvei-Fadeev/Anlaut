@@ -13,22 +13,24 @@ namespace Core.Installers
 
         public sealed override void InstallBindings()
         {
-            InstallBindings(Container, View);
             InstallBindings(Container);
         }
 
         public virtual void InstallBindings(DiContainer diContainer)
         {
+            InstallBindings(diContainer, View);
         }
 
         public static void InstallBindings(DiContainer diContainer, TView view, TModel currencyModel)
         {
+            // TODO InstallBindings(diContainer, View); can't be called here
             diContainer.BindInstance(currencyModel);
             InstallBindings(diContainer, view);
         }
 
         public static void InstallBindings(DiContainer diContainer, TView view)
         {
+            // TODO InstallBindings(diContainer, View); can't be called here
             if (!diContainer.HasBinding<TModel>())
                 diContainer.Bind<TModel>().AsSingle();
             diContainer.Bind<TView>().FromInstance(view);
