@@ -1,4 +1,4 @@
-﻿namespace AnlautJam.Game.Player
+﻿namespace Project.Scripts.Game.Player
 {
     public class PlayerSignal
     {

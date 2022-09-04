@@ -2,7 +2,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace AnlautJam.Game.Player
+namespace Project.Scripts.Game.Player
 {
     [CreateAssetMenu(fileName = nameof(PlayerScriptableObjectInstaller), menuName = "Installers/" + nameof(PlayerScriptableObjectInstaller))]
     public class PlayerScriptableObjectInstaller : ScriptableObjectInstaller<PlayerScriptableObjectInstaller>

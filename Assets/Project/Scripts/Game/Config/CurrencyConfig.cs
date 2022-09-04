@@ -1,4 +1,4 @@
-﻿using AnlautJam.Game.Player;
+﻿using Project.Scripts.Game.Player;
 using UnityEngine;
 
 namespace Project.Scripts.Game.Config

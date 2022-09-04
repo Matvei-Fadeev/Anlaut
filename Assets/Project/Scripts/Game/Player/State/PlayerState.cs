@@ -1,10 +1,13 @@
-﻿namespace AnlautJam.Game.Player
+﻿using Core.Contexts.FSM;
+using Project.Scripts.Game.Player.View;
+
+namespace Project.Scripts.Game.Player.State
 {
     public partial class PlayerStateMediator
     {
-        public class PlayerState : State
+        public class PlayerState : StateMachineMediator<Player.PlayerStateMediator, IPlayerView, PlayerModel>.State
         {
-            public PlayerState(PlayerStateMediator stateMediator) : base(stateMediator)
+            public PlayerState(Player.PlayerStateMediator stateMediator) : base(stateMediator)
             {
             }
         }

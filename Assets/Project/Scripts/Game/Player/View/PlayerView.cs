@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace AnlautJam.Game.Player
+namespace Project.Scripts.Game.Player.View
 {
     public class PlayerView : MonoBehaviour, IPlayerView
     {

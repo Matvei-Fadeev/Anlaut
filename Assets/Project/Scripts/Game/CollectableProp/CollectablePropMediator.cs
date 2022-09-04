@@ -1,7 +1,7 @@
 ﻿using AnlautJam.Game.CurrencyHolder;
-using AnlautJam.Game.Player;
 using AnlautJam.Game.Trigger;
 using Core.Contexts;
+using Project.Scripts.Game.Player.View;
 using UnityEngine;
 
 namespace AnlautJam.Game.CollectableProp

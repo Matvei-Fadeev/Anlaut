@@ -1,6 +1,7 @@
 ﻿using Core.Contexts;
+using Project.Scripts.Game.Player.View;
 
-namespace AnlautJam.Game.Player
+namespace Project.Scripts.Game.Player
 {
     public class PlayerMediator : Mediator<IPlayerView, PlayerModel>
     {
