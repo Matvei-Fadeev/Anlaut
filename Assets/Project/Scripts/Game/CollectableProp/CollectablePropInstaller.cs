@@ -1,25 +1,21 @@
 ﻿using AnlautJam.Game.CurrencyHolder;
 using AnlautJam.Game.Trigger;
-using Core.Installers;
+using Project.Scripts.Game.CollectableProp;
 using UnityEngine;
+using Zenject;
 
 namespace AnlautJam.Game.CollectableProp
 {
-    public class CollectablePropInstaller : MonoInstaller<CollectablePropMediator, ICollectablePropView, CollectablePropModel>
+    public class CollectablePropInstaller : Core.Installers.MonoInstaller<CollectablePropMediator, ICollectablePropView, CollectablePropModel>
     {
-        [SerializeField] private CollectablePropView collectablePropView;
-        [SerializeField] private TriggerView triggerView;
-        [SerializeField] private CurrencyHolderView currencyHolderView;
-        [SerializeField] private CurrencyHolderModel currencyModel;
+        [SerializeField] private CollectablePropFacade collectablePropFacade;
 
-        protected override ICollectablePropView View => collectablePropView;
+        protected override ICollectablePropView View => collectablePropFacade.CollectablePropView;
 
-        public override void InstallBindings()
+        public override void InstallBindings(DiContainer diContainer)
         {
-            base.InstallBindings();
-            
-            TriggerInstaller.InstallBindings(Container, triggerView);
-            CurrencyHolderInstaller.InstallBindings(Container, currencyHolderView, currencyModel);
+            TriggerInstaller.InstallBindings(diContainer, collectablePropFacade.TriggerView);
+            CurrencyHolderInstaller.InstallBindings(diContainer, collectablePropFacade.CurrencyHolderView, collectablePropFacade.CurrencyHolderModel);
         }
     }
 }
