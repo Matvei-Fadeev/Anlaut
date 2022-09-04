@@ -6,14 +6,14 @@ namespace AnlautJam.Game.Trigger
 {
     public class TriggerView : MonoBehaviour, ITriggerView
     {
-        public IObservable<Collision> OnCollisionEnter { get; private set; }
-        public IObservable<Collision> OnCollisionExit { get; private set; }
+        public IObservable<Collider> OnCollisionEnter { get; private set; }
+        public IObservable<Collider> OnCollisionExit { get; private set; }
 
-        private void Start()
+        private void Awake()
         {
-            var eventTrigger = gameObject.AddComponent<ObservableCollisionTrigger>();
-            OnCollisionEnter = eventTrigger.OnCollisionEnterAsObservable();
-            OnCollisionExit = eventTrigger.OnCollisionExitAsObservable();
+            var eventTrigger = gameObject.AddComponent<ObservableTriggerTrigger>();
+            OnCollisionEnter = eventTrigger.OnTriggerEnterAsObservable();
+            OnCollisionExit = eventTrigger.OnTriggerExitAsObservable();
         }
     }
 }

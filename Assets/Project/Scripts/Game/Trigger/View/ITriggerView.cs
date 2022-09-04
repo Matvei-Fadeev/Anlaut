@@ -5,7 +5,7 @@ namespace AnlautJam.Game.Trigger
 {
     public interface ITriggerView
     {
-        IObservable<Collision> OnCollisionEnter { get; }
-        IObservable<Collision> OnCollisionExit { get; }
+        IObservable<Collider> OnCollisionEnter { get; }
+        IObservable<Collider> OnCollisionExit { get; }
     }
 }

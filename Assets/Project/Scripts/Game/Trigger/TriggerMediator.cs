@@ -1,7 +1,7 @@
 ﻿using System;
-using AnlautJam.Game.Player;
 using Core.Contexts;
 using Project.Scripts.Game.Constants;
+using Project.Scripts.Game.Player.View;
 using UniRx;
 using UnityEngine;
 
@@ -15,31 +15,31 @@ namespace AnlautJam.Game.Trigger
         public override void Initialize()
         {
             base.Initialize();
-            View.OnCollisionEnter.Subscribe(OnCollisionEnter).AddTo(Disposables);
-            View.OnCollisionExit.Subscribe(OnCollisionExit).AddTo(Disposables);
+            View.OnCollisionEnter.Subscribe(OnTriggerEnter).AddTo(Disposables);
+            View.OnCollisionExit.Subscribe(OnTriggerExit).AddTo(Disposables);
         }
 
-        private void OnCollisionEnter(Collision collision)
+        private void OnTriggerEnter(Collider collider)
         {
-            if (TryGetView<IPlayerView>(collision, Constants.Tags.Player, out var playerView))
+            if (TryGetView<IPlayerView>(collider, Constants.Tags.Player, out var playerView))
                 OnPlayerTriggerEnter?.Invoke(playerView);
 
-            Debug.Log(nameof(OnCollisionEnter));
+            Debug.Log(nameof(OnTriggerEnter));
         }
 
-        private void OnCollisionExit(Collision collision)
+        private void OnTriggerExit(Collider collider)
         {
-            if (TryGetView<IPlayerView>(collision, Constants.Tags.Player, out var playerView))
+            if (TryGetView<IPlayerView>(collider, Constants.Tags.Player, out var playerView))
                 OnPlayerTriggerExit?.Invoke(playerView);
 
-            Debug.Log(nameof(OnCollisionExit));
+            Debug.Log(nameof(OnTriggerExit));
         }
 
-        private static bool TryGetView<T>(Collision collision, string tag, out T view) where T : class
+        private static bool TryGetView<T>(Collider collider, string tag, out T view) where T : class
         {
             view = null;
-            return collision.collider.CompareTag(tag) &&
-                   collision.gameObject.TryGetComponent(out view);
+            return collider.CompareTag(tag) &&
+                   collider.gameObject.TryGetComponent(out view);
         }
     }
 }
