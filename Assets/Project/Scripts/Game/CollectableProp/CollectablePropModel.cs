@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AnlautJam.Game.CollectableProp
+namespace Jam.Game.CollectableProp
 {
     [Serializable]
     public class CollectablePropModel

@@ -2,7 +2,7 @@
 using UniRx;
 using Zenject;
 
-namespace AnlautJam.Game.StartUp
+namespace Jam.Game.StartUp
 {
     public partial class StartUpMediator : StateMachineMediator<StartUpMediator, StartUpView, StartUpModel>
     {

@@ -2,7 +2,7 @@
 using Core.Contexts;
 using UnityEngine;
 
-namespace AnlautJam.Game.UserInput
+namespace Jam.Game.UserInput
 {
     public class UserInputMediator : Mediator<IUserInputView, UserInputModel>
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace AnlautJam.Game.Trigger
+namespace Jam.Game.Trigger
 {
     public interface ITriggerView
     {

@@ -1,6 +1,6 @@
 ﻿using Core.Contexts.FSM;
 
-namespace AnlautJam.Game.CollectableProp
+namespace Jam.Game.CollectableProp
 {
     public partial class CollectablePropStateMediator : StateMachineMediator<CollectablePropStateMediator, ICollectablePropView, CollectablePropModel>
     {

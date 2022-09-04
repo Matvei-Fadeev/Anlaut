@@ -1,4 +1,4 @@
-﻿namespace AnlautJam.Game.Trigger
+﻿namespace Jam.Game.Trigger
 {
     public enum TriggerType
     {

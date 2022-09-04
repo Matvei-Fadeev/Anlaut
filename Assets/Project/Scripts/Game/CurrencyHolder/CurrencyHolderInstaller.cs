@@ -1,7 +1,7 @@
 ﻿using Core.Installers;
 using UnityEngine;
 
-namespace AnlautJam.Game.CurrencyHolder
+namespace Jam.Game.CurrencyHolder
 {
     public class CurrencyHolderInstaller : MonoInstaller<CurrencyHolderMediator, ICurrencyHolderView, CurrencyHolderModel>
     {

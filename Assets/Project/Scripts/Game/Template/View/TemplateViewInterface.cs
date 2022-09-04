@@ -1,4 +1,4 @@
-﻿namespace AnlautJam.Game.Template
+﻿namespace Jam.Game.Template
 {
     public interface ITemplateView
     {

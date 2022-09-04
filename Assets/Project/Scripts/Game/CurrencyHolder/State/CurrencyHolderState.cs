@@ -1,4 +1,4 @@
-﻿namespace AnlautJam.Game.CurrencyHolder
+﻿namespace Jam.Game.CurrencyHolder
 {
     public partial class CurrencyHolderStateMediator
     {

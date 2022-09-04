@@ -1,10 +1,10 @@
-﻿using AnlautJam.Game.CurrencyHolder;
-using AnlautJam.Game.Trigger;
+﻿using Jam.Game.CurrencyHolder;
+using Jam.Game.Trigger;
 using Core.Contexts;
 using Project.Scripts.Game.Player.View;
 using UnityEngine;
 
-namespace AnlautJam.Game.CollectableProp
+namespace Jam.Game.CollectableProp
 {
     public class CollectablePropMediator : Mediator<ICollectablePropView, CollectablePropModel>
     {

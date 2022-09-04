@@ -1,7 +1,7 @@
 ﻿using System;
 using Project.Scripts.Game.Currency;
 
-namespace AnlautJam.Game.CurrencyHolder
+namespace Jam.Game.CurrencyHolder
 {
     [Serializable]
     public class CurrencyHolderModel : CurrencyModel

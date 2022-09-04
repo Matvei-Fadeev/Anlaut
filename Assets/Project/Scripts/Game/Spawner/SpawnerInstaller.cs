@@ -1,7 +1,7 @@
 ﻿using Core.Installers;
 using UnityEngine;
 
-namespace AnlautJam.Game.Spawner
+namespace Jam.Game.Spawner
 {
     public class SpawnerInstaller : MonoInstaller<SpawnerMediator, ISpawnerView, SpawnerModel>
     {

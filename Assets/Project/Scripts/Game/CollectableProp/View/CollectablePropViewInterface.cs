@@ -1,4 +1,4 @@
-﻿namespace AnlautJam.Game.CollectableProp
+﻿namespace Jam.Game.CollectableProp
 {
     public interface ICollectablePropView
     {

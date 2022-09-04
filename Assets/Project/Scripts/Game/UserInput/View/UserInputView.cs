@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace AnlautJam.Game.UserInput
+namespace Jam.Game.UserInput
 {
     public class UserInputView : MonoBehaviour, IUserInputView
     {

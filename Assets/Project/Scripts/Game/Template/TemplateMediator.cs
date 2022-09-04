@@ -1,6 +1,6 @@
 ﻿using Core.Contexts;
 
-namespace AnlautJam.Game.Template
+namespace Jam.Game.Template
 {
     public class TemplateMediator : Mediator<ITemplateView, TemplateModel>
     {

@@ -1,9 +1,9 @@
-﻿using AnlautJam.Game.UserInput;
+﻿using Jam.Game.UserInput;
 using Core.Contexts;
 using UnityEngine;
 using Zenject;
 
-namespace AnlautJam.Game.Movement
+namespace Jam.Game.Movement
 {
     public class MovementMediator : Mediator<IMovementView, MovementModel>
     {

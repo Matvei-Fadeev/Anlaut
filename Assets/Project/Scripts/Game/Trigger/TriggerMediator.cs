@@ -5,7 +5,7 @@ using Project.Scripts.Game.Player.View;
 using UniRx;
 using UnityEngine;
 
-namespace AnlautJam.Game.Trigger
+namespace Jam.Game.Trigger
 {
     public class TriggerMediator : Mediator<ITriggerView, TriggerModel>
     {

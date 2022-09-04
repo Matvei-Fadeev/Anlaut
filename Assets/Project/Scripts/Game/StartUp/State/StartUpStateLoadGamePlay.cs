@@ -1,7 +1,7 @@
 ﻿using Core.Installers;
 using Project.Scripts.Game.Constants;
 
-namespace AnlautJam.Game.StartUp
+namespace Jam.Game.StartUp
 {
     public partial class StartUpMediator
     {

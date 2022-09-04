@@ -1,7 +1,7 @@
 ﻿using Core.Installers;
 using UnityEngine;
 
-namespace AnlautJam.Game.Trigger
+namespace Jam.Game.Trigger
 {
     public class TriggerInstaller : MonoInstaller<TriggerMediator, ITriggerView, TriggerModel>
     {

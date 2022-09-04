@@ -1,5 +1,5 @@
-﻿using AnlautJam.Game.Movement;
-using AnlautJam.Game.Trigger;
+﻿using Jam.Game.Movement;
+using Jam.Game.Trigger;
 using Core.Unity;
 using Project.Scripts.Game.Player.View;
 using UnityEngine;

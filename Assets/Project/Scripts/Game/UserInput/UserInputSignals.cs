@@ -1,4 +1,4 @@
-﻿namespace AnlautJam.Game.UserInput
+﻿namespace Jam.Game.UserInput
 {
     public class UserInputSignal
     {

@@ -1,4 +1,4 @@
-﻿namespace AnlautJam.Game.Movement
+﻿namespace Jam.Game.Movement
 {
     public class MovementSignal
     {

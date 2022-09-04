@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Zenject;
 
-namespace AnlautJam.Game.StartUp
+namespace Jam.Game.StartUp
 {
     public class StartUpInstaller : MonoInstaller
     {

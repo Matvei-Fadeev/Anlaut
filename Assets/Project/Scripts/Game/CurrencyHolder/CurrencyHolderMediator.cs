@@ -1,6 +1,6 @@
 ﻿using Core.Contexts;
 
-namespace AnlautJam.Game.CurrencyHolder
+namespace Jam.Game.CurrencyHolder
 {
     public class CurrencyHolderMediator : Mediator<ICurrencyHolderView, CurrencyHolderModel>
     {

@@ -1,10 +1,10 @@
-﻿using AnlautJam.Game.CurrencyHolder;
-using AnlautJam.Game.Trigger;
+﻿using Jam.Game.CurrencyHolder;
+using Jam.Game.Trigger;
 using Project.Scripts.Game.CollectableProp;
 using UnityEngine;
 using Zenject;
 
-namespace AnlautJam.Game.CollectableProp
+namespace Jam.Game.CollectableProp
 {
     public class CollectablePropInstaller : Core.Installers.MonoInstaller<CollectablePropMediator, ICollectablePropView, CollectablePropModel>
     {

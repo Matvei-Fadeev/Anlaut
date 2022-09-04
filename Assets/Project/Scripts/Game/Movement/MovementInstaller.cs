@@ -1,7 +1,7 @@
 ﻿using Core.Installers;
 using UnityEngine;
 
-namespace AnlautJam.Game.Movement
+namespace Jam.Game.Movement
 {
     public class MovementInstaller : MonoInstaller<MovementMediator, IMovementView, MovementModel>
     {

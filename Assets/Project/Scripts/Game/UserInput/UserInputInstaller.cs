@@ -1,7 +1,7 @@
 ﻿using Core.Installers;
 using UnityEngine;
 
-namespace AnlautJam.Game.UserInput
+namespace Jam.Game.UserInput
 {
     public class UserInputInstaller : MonoInstaller<UserInputMediator, IUserInputView, UserInputModel>
     {

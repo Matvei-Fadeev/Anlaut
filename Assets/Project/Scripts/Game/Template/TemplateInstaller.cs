@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Zenject;
 
-namespace AnlautJam.Game.Template
+namespace Jam.Game.Template
 {
     public class TemplateInstaller : Core.Installers.MonoInstaller<TemplateMediator, ITemplateView, TemplateModel>
     {

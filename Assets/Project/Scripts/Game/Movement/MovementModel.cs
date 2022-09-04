@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AnlautJam.Game.Movement
+namespace Jam.Game.Movement
 {
     [Serializable]
     public class MovementModel

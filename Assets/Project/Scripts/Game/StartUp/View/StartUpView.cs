@@ -1,6 +1,6 @@
 ﻿using Core.UI.View;
 
-namespace AnlautJam.Game.StartUp
+namespace Jam.Game.StartUp
 {
     public class StartUpView : ShowHideView
     {

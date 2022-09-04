@@ -2,7 +2,7 @@
 using UniRx.Triggers;
 using UnityEngine;
 
-namespace AnlautJam.Game.Trigger
+namespace Jam.Game.Trigger
 {
     public class TriggerView : MonoBehaviour, ITriggerView
     {

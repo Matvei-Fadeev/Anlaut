@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AnlautJam.Game.Template
+namespace Jam.Game.Template
 {
     [Serializable]
     public class TemplateModel

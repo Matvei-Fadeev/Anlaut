@@ -1,4 +1,4 @@
-﻿namespace AnlautJam.Game.Spawner
+﻿namespace Jam.Game.Spawner
 {
     public class SpawnerModel
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace AnlautJam.Game.Template
+namespace Jam.Game.Template
 {
     public class TemplateView : MonoBehaviour, ITemplateView
     {

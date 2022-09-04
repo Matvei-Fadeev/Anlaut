@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace AnlautJam.Game.Movement
+namespace Jam.Game.Movement
 {
     public interface IMovementView
     {

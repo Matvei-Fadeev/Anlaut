@@ -1,4 +1,4 @@
-﻿namespace AnlautJam.Game.StartUp
+﻿namespace Jam.Game.StartUp
 {
     public partial class StartUpMediator
     {

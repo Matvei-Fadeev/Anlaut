@@ -1,6 +1,6 @@
 ﻿using UniRx;
 
-namespace AnlautJam.Game.StartUp
+namespace Jam.Game.StartUp
 {
     public class StartUpModel
     {

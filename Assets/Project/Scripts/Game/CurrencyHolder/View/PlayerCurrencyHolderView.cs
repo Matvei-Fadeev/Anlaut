@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace AnlautJam.Game.CurrencyHolder
+namespace Jam.Game.CurrencyHolder
 {
     public class PlayerCurrencyHolderView : MonoBehaviour, ICurrencyHolderView
     {

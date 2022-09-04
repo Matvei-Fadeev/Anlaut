@@ -2,7 +2,7 @@
 using Core.Unity;
 using UnityEngine;
 
-namespace AnlautJam.Game.Template
+namespace Jam.Game.Template
 {
     public class TemplateFacade : AFacade
     {

@@ -1,7 +1,7 @@
 ﻿using Core.Contexts;
 using Project.Scripts.Game.Spawner;
 
-namespace AnlautJam.Game.Spawner
+namespace Jam.Game.Spawner
 {
     public class SpawnerMediator : Mediator<ISpawnerView, SpawnerModel>
     {

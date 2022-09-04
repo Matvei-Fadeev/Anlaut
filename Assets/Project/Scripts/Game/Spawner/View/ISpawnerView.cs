@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Project.Scripts.Game.Spawner;
 
-namespace AnlautJam.Game.Spawner
+namespace Jam.Game.Spawner
 {
     public interface ISpawnerView
     {

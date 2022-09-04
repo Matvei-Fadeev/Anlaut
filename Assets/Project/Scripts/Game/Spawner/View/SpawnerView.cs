@@ -3,7 +3,7 @@ using Project.Scripts.Game.Spawner;
 using UnityEngine;
 using Zenject;
 
-namespace AnlautJam.Game.Spawner
+namespace Jam.Game.Spawner
 {
     public class SpawnerView : MonoBehaviour, ISpawnerView
     {
