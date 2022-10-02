@@ -21,21 +21,21 @@ namespace Jam.Game.Trigger
 
         private void OnTriggerEnter(Collider collider)
         {
-            if (TryGetView<PlayerEntity>(collider, Constants.Tags.Player, out var playerView))
-                OnPlayerTriggerEnter?.Invoke(playerView);
+            if (TryGetEntity<PlayerEntity>(collider, Constants.Tags.Player, out var playerEntity))
+                OnPlayerTriggerEnter?.Invoke(playerEntity);
 
             Debug.Log(nameof(OnTriggerEnter));
         }
 
         private void OnTriggerExit(Collider collider)
         {
-            if (TryGetView<PlayerEntity>(collider, Constants.Tags.Player, out var playerView))
-                OnPlayerTriggerExit?.Invoke(playerView);
+            if (TryGetEntity<PlayerEntity>(collider, Constants.Tags.Player, out var playerEntity))
+                OnPlayerTriggerExit?.Invoke(playerEntity);
 
             Debug.Log(nameof(OnTriggerExit));
         }
 
-        private static bool TryGetView<T>(Collider collider, string tag, out T view) where T : class
+        private static bool TryGetEntity<T>(Collider collider, string tag, out T view) where T : class
         {
             view = null;
             return collider.CompareTag(tag) &&
