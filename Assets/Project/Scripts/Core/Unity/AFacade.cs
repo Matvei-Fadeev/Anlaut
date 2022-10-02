@@ -20,7 +20,10 @@ namespace Core.Unity
                 #if UNITY_EDITOR
                 EditorUtility.SetDirty(this);
                 #endif
+                return;
             }
+
+            Debug.LogError($"Component of type {typeof(T)} not found in {name} or its children.");
         }
     }
 }
