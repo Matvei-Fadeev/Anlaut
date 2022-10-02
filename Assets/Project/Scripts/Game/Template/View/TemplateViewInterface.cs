@@ -1,6 +1,8 @@
-﻿namespace Jam.Game.Template
+﻿using Core.Contexts;
+
+namespace Jam.Game.Template
 {
-    public interface ITemplateView
+    public interface ITemplateView : IView<ITemplateMediator>
     {
     }
 }

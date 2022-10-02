@@ -2,7 +2,11 @@
 
 namespace Jam.Game.Template
 {
-    public class TemplateMediator : Mediator<ITemplateView, TemplateModel>
+    public interface ITemplateMediator
+    {
+    }
+
+    public class TemplateMediator : Mediator<ITemplateView, TemplateModel>, ITemplateMediator
     {
         public override void Initialize()
         {
