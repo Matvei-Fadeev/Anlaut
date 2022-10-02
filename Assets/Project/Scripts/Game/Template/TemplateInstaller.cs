@@ -5,13 +5,8 @@ namespace Jam.Game.Template
 {
     public class TemplateInstaller : Core.Installers.MonoInstaller<TemplateMediator, ITemplateView, TemplateModel>
     {
-        [SerializeField] private TemplateFacade templateFacade;
+        [SerializeField] private TemplateView templateView;
 
-        protected override ITemplateView View => templateFacade.TemplateView;
-
-        public override void InstallBindings(DiContainer diContainer)
-        {
-            base.InstallBindings(diContainer);
-        }
+        protected override ITemplateView View => templateView;
     }
 }

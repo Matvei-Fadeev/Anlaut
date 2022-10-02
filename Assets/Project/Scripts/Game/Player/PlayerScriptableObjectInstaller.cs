@@ -14,7 +14,7 @@ namespace Project.Scripts.Game.Player
         {
             Container.BindInstance(movementModel);
             
-            var playerInstaller = Container.InstantiatePrefabForComponent<PlayerInstaller>(playerPrefab);
+            var playerInstaller = Container.InstantiatePrefabForComponent<PlayerEntity>(playerPrefab);
             playerInstaller.InstallBindings(Container);
         }
     }

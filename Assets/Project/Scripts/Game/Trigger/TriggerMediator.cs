@@ -1,7 +1,7 @@
 ﻿using System;
 using Core.Contexts;
 using Project.Scripts.Game.Constants;
-using Project.Scripts.Game.Player.View;
+using Project.Scripts.Game.Player;
 using UniRx;
 using UnityEngine;
 
@@ -9,8 +9,8 @@ namespace Jam.Game.Trigger
 {
     public class TriggerMediator : Mediator<ITriggerView, TriggerModel>
     {
-        public event Action<IPlayerView> OnPlayerTriggerEnter;
-        public event Action<IPlayerView> OnPlayerTriggerExit;
+        public event Action<PlayerEntity> OnPlayerTriggerEnter;
+        public event Action<PlayerEntity> OnPlayerTriggerExit;
 
         public override void Initialize()
         {
@@ -21,7 +21,7 @@ namespace Jam.Game.Trigger
 
         private void OnTriggerEnter(Collider collider)
         {
-            if (TryGetView<IPlayerView>(collider, Constants.Tags.Player, out var playerView))
+            if (TryGetView<PlayerEntity>(collider, Constants.Tags.Player, out var playerView))
                 OnPlayerTriggerEnter?.Invoke(playerView);
 
             Debug.Log(nameof(OnTriggerEnter));
@@ -29,7 +29,7 @@ namespace Jam.Game.Trigger
 
         private void OnTriggerExit(Collider collider)
         {
-            if (TryGetView<IPlayerView>(collider, Constants.Tags.Player, out var playerView))
+            if (TryGetView<PlayerEntity>(collider, Constants.Tags.Player, out var playerView))
                 OnPlayerTriggerExit?.Invoke(playerView);
 
             Debug.Log(nameof(OnTriggerExit));

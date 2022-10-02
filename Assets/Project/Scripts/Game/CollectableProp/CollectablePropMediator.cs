@@ -1,7 +1,7 @@
 ﻿using Jam.Game.CurrencyHolder;
 using Jam.Game.Trigger;
 using Core.Contexts;
-using Project.Scripts.Game.Player.View;
+using Project.Scripts.Game.Player;
 using UnityEngine;
 
 namespace Jam.Game.CollectableProp
@@ -31,12 +31,14 @@ namespace Jam.Game.CollectableProp
             _triggerMediator.OnPlayerTriggerExit -= OnPlayerInTriggerExit;
         }
 
-        private void OnPlayerTriggerEnter(IPlayerView playerView)
+        private void OnPlayerTriggerEnter(PlayerEntity playerEntity)
         {
-            Debug.Log($"CollectablePropMediator.OnPlayerTriggerEnter");
+            var currencyValue = Model.CurrencyChangeOnPlayerInTrigger;
+            var currencyHolderMediator = playerEntity.Get<ICurrencyHolderMediator>();
+            currencyHolderMediator.ChangeCurrency(currencyValue);
         }
 
-        private void OnPlayerInTriggerExit(IPlayerView playerView)
+        private void OnPlayerInTriggerExit(PlayerEntity playerEntity)
         {
             Debug.Log($"CollectablePropMediator.OnPlayerInTriggerExit");
         }

@@ -1,5 +1,4 @@
-﻿using System;
-using Core.Contexts;
+﻿using Core.Contexts;
 using Zenject;
 
 namespace Core.Installers

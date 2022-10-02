@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7824629070162107184}
-  - component: {fileID: 7947381168204701561}
   - component: {fileID: 5843406219771681763}
   - component: {fileID: 6611248172619354327}
+  - component: {fileID: 2604090146119904863}
   m_Layer: 0
   m_Name: Forest
   m_TagString: Untagged
@@ -35,25 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7947381168204701561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5680971751277426710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 322a0574dfb24081bcbafbbce50ddfa5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collectablePropView: {fileID: 5843406219771681763}
-  triggerView: {fileID: 2359542211146065777}
-  currencyHolderView: {fileID: 6611248172619354327}
-  currencyModel:
-    currencyValues:
-    - currencyType: 2
-      amount: 5
 --- !u!114 &5843406219771681763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,6 +59,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43947522c71847f2bf6edef7cf1d17dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2604090146119904863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5680971751277426710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 684f87909ff54e038b5271ab165c4b9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectablePropView: {fileID: 5843406219771681763}
+  triggerView: {fileID: 2359542211146065777}
+  currencyHolderView: {fileID: 6611248172619354327}
+  currencyModel:
+    currencyValues:
+    - currencyType: 2
+      amount: 10
 --- !u!1 &7133560822263605703
 GameObject:
   m_ObjectHideFlags: 0
