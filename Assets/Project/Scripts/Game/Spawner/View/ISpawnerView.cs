@@ -5,6 +5,7 @@ namespace Jam.Game.Spawner
 {
     public interface ISpawnerView
     {
+        ISpawnPoint PlayerSpawnPoint { get; }
         List<ISpawnPoint> SpawnPoints { get; }
     }
 }
