@@ -1,6 +1,5 @@
 ﻿using System;
 using Core.Contexts;
-using Project.Scripts.Game.Constants;
 using Project.Scripts.Game.Player;
 using UniRx;
 using UnityEngine;
@@ -21,7 +20,10 @@ namespace Jam.Game.Trigger
 
         private void OnTriggerEnter(Collider collider)
         {
-            if (TryGetEntity<PlayerEntity>(collider, Constants.Tags.Player, out var playerEntity))
+            if (!collider.TryGetComponent(out ITriggerView triggerView))
+                return;
+
+            if (triggerView.Entity is PlayerEntity playerEntity) 
                 OnPlayerTriggerEnter?.Invoke(playerEntity);
 
             Debug.Log(nameof(OnTriggerEnter));
@@ -29,17 +31,13 @@ namespace Jam.Game.Trigger
 
         private void OnTriggerExit(Collider collider)
         {
-            if (TryGetEntity<PlayerEntity>(collider, Constants.Tags.Player, out var playerEntity))
+            if (!collider.TryGetComponent(out ITriggerView triggerView))
+                return;
+
+            if (triggerView.Entity is PlayerEntity playerEntity) 
                 OnPlayerTriggerExit?.Invoke(playerEntity);
 
             Debug.Log(nameof(OnTriggerExit));
-        }
-
-        private static bool TryGetEntity<T>(Collider collider, string tag, out T view) where T : class
-        {
-            view = null;
-            return collider.CompareTag(tag) &&
-                   collider.gameObject.TryGetComponent(out view);
         }
     }
 }

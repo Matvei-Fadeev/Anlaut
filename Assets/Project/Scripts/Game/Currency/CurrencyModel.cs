@@ -24,6 +24,11 @@ namespace Project.Scripts.Game.Currency
             return currencyValue;
         }
 
+        public bool TryToChangeCurrency(CurrencyValue currencyValue)
+        {
+            return currencyValue.amount > 0 ? TryToAddCurrency(currencyValue) : TryToSpentCurrency(currencyValue);
+        }
+        
         public bool TryToAddCurrency(CurrencyValue currencyToAdd)
         {
             var amountToAdd = currencyToAdd.amount;

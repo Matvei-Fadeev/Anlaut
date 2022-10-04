@@ -256,6 +256,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43947522c71847f2bf6edef7cf1d17dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currencyValueViewPrefab: {fileID: 7966093513446022488, guid: 4f0f668dbdebb0a4fa6554f9f4daca70, type: 3}
+  spawnParent: {fileID: 4149274995658802069}
+  currencyValueViews: []
 --- !u!1 &6276893908647587800
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,6 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65bcfa84cc8442e4a2eb233f1b9f4a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entity: {fileID: 7966339193295331096}
 --- !u!54 &1806879439588776101
 Rigidbody:
   m_ObjectHideFlags: 0

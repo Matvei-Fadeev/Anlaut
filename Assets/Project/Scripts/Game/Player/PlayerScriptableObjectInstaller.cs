@@ -1,4 +1,5 @@
-﻿using Jam.Game.Movement;
+﻿using Jam.Game.CurrencyHolder;
+using Jam.Game.Movement;
 using UnityEngine;
 using Zenject;
 
@@ -10,12 +11,15 @@ namespace Project.Scripts.Game.Player
         [SerializeField] private GameObject playerPrefab;
         [SerializeField] private MovementModel movementModel;
         
+        [Inject] private CurrencyHolderView _currencyHolderView;
+        
         public override void InstallBindings()
         {
             Container.BindInstance(movementModel);
-            
-            var playerInstaller = Container.InstantiatePrefabForComponent<PlayerEntity>(playerPrefab);
-            playerInstaller.InstallBindings(Container);
+            var playerEntity = Container.InstantiatePrefabForComponent<PlayerEntity>(playerPrefab);
+            playerEntity.Construct(_currencyHolderView);
+            playerEntity.InstallBindings(Container);
+            Container.BindInstance(playerEntity);
         }
     }
 }

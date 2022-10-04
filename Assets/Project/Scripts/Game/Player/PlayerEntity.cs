@@ -13,23 +13,28 @@ namespace Project.Scripts.Game.Player
         [SerializeField] private PlayerView playerView;
         [SerializeField] private TriggerView triggerView;
         [SerializeField] private MovementView movementView;
-        [SerializeField] private CurrencyHolderView currencyHolderView;
+
+        private CurrencyHolderView _currencyHolderView;
+
+        public void Construct(CurrencyHolderView currencyHolderView)
+        {
+            _currencyHolderView = currencyHolderView;
+        }
 
         private void OnValidate()
         {
             Validate(ref playerView);
             Validate(ref triggerView);
             Validate(ref movementView);
-            Validate(ref currencyHolderView);
         }
-        
+
         public override void InstallBindings(DiContainer diContainer)
         {
             base.InstallBindings(diContainer);
             PlayerInstaller.InstallBindings(diContainer, playerView);
             MovementInstaller.InstallBindings(diContainer, movementView);
             TriggerInstaller.InstallBindings(diContainer, triggerView);
-            CurrencyHolderInstaller.InstallBindings(diContainer, currencyHolderView);
+            CurrencyHolderInstaller.InstallBindings(diContainer, _currencyHolderView);
         }
     }
 }
