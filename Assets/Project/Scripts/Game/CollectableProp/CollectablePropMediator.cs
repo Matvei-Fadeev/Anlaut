@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Jam.Game.CurrencyHolder;
 using Jam.Game.Trigger;
 using Core.Contexts;
@@ -76,11 +77,17 @@ namespace Jam.Game.CollectableProp
             while (_currencyHolderMediator.HasAny())
             {
                 yield return waitForSeconds;
-                
+
                 var currencyValue = Model.currencyChangeOnPlayerInTrigger;
+                var currencyHolderValue = _currencyHolderMediator.GetCurrency(currencyValue.currencyType);
+                if (currencyHolderValue.amount < currencyValue.amount)
+                    currencyValue = currencyHolderValue;
+
+                if (!_currencyHolderMediator.TryRemoveCurrency(currencyValue)) 
+                    continue;
+                
                 var playerCurrencyHolderMediator = playerEntity.Get<ICurrencyHolderMediator>();
-                playerCurrencyHolderMediator.AddCurrency(currencyValue);
-                _currencyHolderMediator.RemoveCurrency(currencyValue);
+                playerCurrencyHolderMediator.TryAddCurrency(currencyValue);
             }
 
             View.Hide();
@@ -92,7 +99,7 @@ namespace Jam.Game.CollectableProp
             var waitForSeconds = new WaitForSeconds(Model.respawnDelay);
             yield return waitForSeconds;
 
-            _defaultCurrencyValues.ForEach(_currencyHolderMediator.AddCurrency);
+            _defaultCurrencyValues.ForEach(x => _currencyHolderMediator.TryAddCurrency(x));
             TryToShow();
         }
 

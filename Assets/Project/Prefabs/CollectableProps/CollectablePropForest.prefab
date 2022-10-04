@@ -112,6 +112,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9047858544990596394, guid: 72518b027eed89147b6174d588acd92b, type: 3}
+      propertyPath: currencyModel.currencyValues.Array.data[0].amount
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047858544990596394, guid: 72518b027eed89147b6174d588acd92b, type: 3}
+      propertyPath: collectablePropModel.currencyChangeOnPlayerInTrigger.amount
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72518b027eed89147b6174d588acd92b, type: 3}
 --- !u!4 &5795337346921123734 stripped

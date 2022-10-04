@@ -13,15 +13,20 @@ namespace Project.Scripts.Game.Currency
             var currencyValue = currencyValues.Find(x => x.currencyType == currencyType);
             if (currencyValue == null)
             {
-                currencyValue = new CurrencyValue
-                {
-                    amount = 0,
-                    currencyType = currencyType
-                };
+                currencyValue = GetDefault(currencyType);
                 currencyValues.Add(currencyValue);
             }
 
             return currencyValue;
+        }
+
+        public CurrencyValue GetDefault(CurrencyType currencyType)
+        {
+            return new CurrencyValue
+            {
+                amount = 0,
+                currencyType = currencyType
+            };
         }
 
         public bool TryToChangeCurrency(CurrencyValue currencyValue)

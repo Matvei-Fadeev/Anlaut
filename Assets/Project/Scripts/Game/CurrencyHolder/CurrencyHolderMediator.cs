@@ -8,8 +8,8 @@ namespace Jam.Game.CurrencyHolder
     public interface ICurrencyHolderMediator
     {
         public void ChangeCurrency(CurrencyValue currencyValue);
-        public void AddCurrency(CurrencyValue currencyValue);
-        public void RemoveCurrency(CurrencyValue currencyValue);
+        public bool TryAddCurrency(CurrencyValue currencyValue);
+        public bool TryRemoveCurrency(CurrencyValue currencyValue);
     }
 
     public class CurrencyHolderMediator : Mediator<ICurrencyHolderView, CurrencyHolderModel>, ICurrencyHolderMediator
@@ -27,25 +27,31 @@ namespace Jam.Game.CurrencyHolder
         public void ChangeCurrency(CurrencyValue currencyValue)
         {
             if (currencyValue.amount > 0)
-                AddCurrency(currencyValue);
+                TryAddCurrency(currencyValue);
             else
-                RemoveCurrency(currencyValue);
+                TryRemoveCurrency(currencyValue);
         }
 
-        public void AddCurrency(CurrencyValue currencyValue)
+        public bool TryAddCurrency(CurrencyValue currencyValue)
         {
             if (Model.TryToAddCurrency(currencyValue))
             {
                 View.UpdateCurrency(Model.GetCurrencyValue(currencyValue.currencyType));
+                return true;
             }
+
+            return false;
         }
 
-        public void RemoveCurrency(CurrencyValue currencyValue)
+        public bool TryRemoveCurrency(CurrencyValue currencyValue)
         {
             if (Model.TryToSpentCurrency(currencyValue))
             {
                 View.UpdateCurrency(Model.GetCurrencyValue(currencyValue.currencyType));
+                return true;
             }
+
+            return false;
         }
 
         public bool HasAny()
@@ -56,6 +62,12 @@ namespace Jam.Game.CurrencyHolder
         public List<CurrencyValue> GetCurrency()
         {
             return Model.currencyValues.Select(currencyValue => currencyValue.Clone()).ToList();
+        }
+
+        public CurrencyValue GetCurrency(CurrencyType currencyType)
+        {
+            return Model.currencyValues.FirstOrDefault(currencyValue => currencyValue.currencyType == currencyType)
+                ?.Clone() ?? Model.GetDefault(currencyType);
         }
     }
 }

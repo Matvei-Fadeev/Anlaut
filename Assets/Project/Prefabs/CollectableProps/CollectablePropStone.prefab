@@ -114,11 +114,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9047858544990596394, guid: 72518b027eed89147b6174d588acd92b, type: 3}
       propertyPath: currencyModel.currencyValues.Array.data[0].amount
-      value: 6
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 9047858544990596394, guid: 72518b027eed89147b6174d588acd92b, type: 3}
       propertyPath: currencyModel.currencyValues.Array.data[0].currencyType
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047858544990596394, guid: 72518b027eed89147b6174d588acd92b, type: 3}
+      propertyPath: collectablePropModel.currencyChangeOnPlayerInTrigger.amount
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9047858544990596394, guid: 72518b027eed89147b6174d588acd92b, type: 3}
       propertyPath: collectablePropModel.currencyChangeOnPlayerInTrigger.currencyType
