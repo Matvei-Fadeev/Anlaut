@@ -1,6 +1,10 @@
-﻿using Jam.Game.CurrencyHolder;
+﻿using System.Collections;
+using System.Collections.Generic;
+using Jam.Game.CurrencyHolder;
 using Jam.Game.Trigger;
 using Core.Contexts;
+using Core.Unity;
+using Project.Scripts.Game.Currency;
 using Project.Scripts.Game.Player;
 using UnityEngine;
 
@@ -10,11 +14,16 @@ namespace Jam.Game.CollectableProp
     {
         private readonly TriggerMediator _triggerMediator;
         private readonly CurrencyHolderMediator _currencyHolderMediator;
+        private readonly CoroutineRunner _coroutineRunner;
+        
+        private IEnumerator _collectCurrencyFunc;
+        private List<CurrencyValue> _defaultCurrencyValues;
 
-        public CollectablePropMediator(TriggerMediator triggerMediator, CurrencyHolderMediator currencyHolderMediator)
+        public CollectablePropMediator(TriggerMediator triggerMediator, CurrencyHolderMediator currencyHolderMediator, CoroutineRunner coroutineRunner)
         {
             _triggerMediator = triggerMediator;
             _currencyHolderMediator = currencyHolderMediator;
+            _coroutineRunner = coroutineRunner;
         }
         
         public override void Initialize()
@@ -22,6 +31,9 @@ namespace Jam.Game.CollectableProp
             base.Initialize();
             _triggerMediator.OnPlayerTriggerEnter += OnPlayerTriggerEnter;
             _triggerMediator.OnPlayerTriggerExit += OnPlayerInTriggerExit;
+
+            _defaultCurrencyValues = _currencyHolderMediator.GetCurrency();
+            TryToShow();
         }
 
         public override void Dispose()
@@ -33,14 +45,61 @@ namespace Jam.Game.CollectableProp
 
         private void OnPlayerTriggerEnter(PlayerEntity playerEntity)
         {
-            var currencyValue = Model.CurrencyChangeOnPlayerInTrigger;
-            var currencyHolderMediator = playerEntity.Get<ICurrencyHolderMediator>();
-            currencyHolderMediator.ChangeCurrency(currencyValue);
+            StartCollecting(playerEntity);
         }
 
         private void OnPlayerInTriggerExit(PlayerEntity playerEntity)
         {
-            Debug.Log($"CollectablePropMediator.OnPlayerInTriggerExit");
+            StopCollecting();
+        }
+
+        private void StartCollecting(PlayerEntity playerEntity)
+        {
+            StopCollecting();
+            _collectCurrencyFunc = CollectCurrency(playerEntity);
+            _coroutineRunner.StartCoroutine(_collectCurrencyFunc);
+        }
+
+        private void StopCollecting()
+        {
+            if (_collectCurrencyFunc != null)
+            {
+                _coroutineRunner.StopCoroutine(_collectCurrencyFunc);
+                _collectCurrencyFunc = null;
+            }
+        }
+
+        private IEnumerator CollectCurrency(PlayerEntity playerEntity)
+        {
+            var waitForSeconds = new WaitForSeconds(Model.collectingDelay);
+
+            while (_currencyHolderMediator.HasAny())
+            {
+                yield return waitForSeconds;
+                
+                var currencyValue = Model.currencyChangeOnPlayerInTrigger;
+                var playerCurrencyHolderMediator = playerEntity.Get<ICurrencyHolderMediator>();
+                playerCurrencyHolderMediator.AddCurrency(currencyValue);
+                _currencyHolderMediator.RemoveCurrency(currencyValue);
+            }
+
+            View.Hide();
+            _coroutineRunner.StartCoroutine(RestoreWithDelay());
+        }
+
+        private IEnumerator RestoreWithDelay()
+        {
+            var waitForSeconds = new WaitForSeconds(Model.respawnDelay);
+            yield return waitForSeconds;
+
+            _defaultCurrencyValues.ForEach(_currencyHolderMediator.AddCurrency);
+            TryToShow();
+        }
+
+        private void TryToShow()
+        {
+            if (_currencyHolderMediator.HasAny())
+                View.Show();
         }
     }
 }

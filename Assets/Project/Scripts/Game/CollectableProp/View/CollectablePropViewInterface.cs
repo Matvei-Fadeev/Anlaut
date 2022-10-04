@@ -2,5 +2,7 @@
 {
     public interface ICollectablePropView
     {
+        void Show();
+        void Hide();
     }
 }

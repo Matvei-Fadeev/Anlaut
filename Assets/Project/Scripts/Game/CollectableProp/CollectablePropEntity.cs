@@ -13,6 +13,7 @@ namespace Project.Scripts.Game.CollectableProp
         [SerializeField] private TriggerView triggerView;
         [SerializeField] private CurrencyHolderView currencyHolderView;
         [SerializeField] private CurrencyHolderModel currencyModel;
+        [SerializeField] private CollectablePropModel collectablePropModel;
 
         private void OnValidate()
         {
@@ -24,7 +25,7 @@ namespace Project.Scripts.Game.CollectableProp
         public override void InstallBindings(DiContainer diContainer)
         {
             base.InstallBindings(diContainer);
-            CollectablePropInstaller.InstallBindings(diContainer, collectablePropView);
+            CollectablePropInstaller.InstallBindings(diContainer, collectablePropView, collectablePropModel);
             TriggerInstaller.InstallBindings(diContainer, triggerView);
             CurrencyHolderInstaller.InstallBindings(diContainer, currencyHolderView, currencyModel);
         }
